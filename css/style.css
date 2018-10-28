@@ -37,7 +37,7 @@ body {
     justify-content: center;
     flex-basis: 30%;
     flex-shrink: 2;
-    /* flex-grow: 1; */
+    flex-grow: 1;
 }
 
 .logo img {
@@ -53,15 +53,14 @@ body {
 .login-form {
     min-width: 33vw;
     max-width: 600px;
-    min-height: 250px;
-    /* height: 30%; */
-    max-height: 60%;
+    max-height: 70%;
     border-radius: 8px;
     box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.15);
     background-color: #fff;
     padding: 2em;
     padding-bottom: 3em;
     border-radius: 8px;
+    margin-bottom: 10vh;
 }
 
 .login input {
@@ -169,7 +168,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    /* height: 100%; */
     min-width: 33vw;
     max-width: 600px;
     min-height: 250px;
@@ -180,6 +178,7 @@ body {
     padding: 2em;
     padding-bottom: 3em;
     border-radius: 8px;
+    margin-bottom: 10vh;
 }
 
 .profile-img {
