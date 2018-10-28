@@ -36,6 +36,8 @@ window.addEventListener("load", function () {
 
     function showProfile(profile) {
         removeInputError();
+        document.getElementsByClassName("login__form-email")[0].value = "";
+        document.getElementsByClassName("login__form-password")[0].value = "";
         document.getElementsByClassName("error-msg")[0].style.display = "none";
         document.getElementsByClassName("profile-img")[0].src = profile["photoUrl"];
         document.getElementsByClassName("profile-name")[0].textContent = profile["name"];
