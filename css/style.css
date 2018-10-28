@@ -1,0 +1,203 @@
+@font-face {
+
+    font-family: 'Gotham';
+    src: url('../assets/fonts/Gotham_Cyrillic/GothaProBol.otf');
+    font-weight: bold;
+    font-style: normal;
+    
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('../assets/fonts/Gotham_Cyrillic/GothaProMed.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, html{
+	height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+}
+
+body {
+    background-image: url(../assets/img/background.jpg), linear-gradient(151deg, #ff435d, #b0208e);
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+
+.logo {
+    min-width: 20vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 30%;
+    flex-shrink: 2;
+    /* flex-grow: 1; */
+}
+
+.logo img {
+    min-width: 20vw;
+}
+
+.login {
+    flex-basis: 70%;
+    flex-shrink: 1;
+    flex-grow: 2;
+}
+
+.login-form {
+    min-width: 33vw;
+    max-width: 600px;
+    min-height: 250px;
+    /* height: 30%; */
+    max-height: 60%;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    padding: 2em;
+    padding-bottom: 3em;
+    border-radius: 8px;
+}
+
+.login input {
+    color: black;
+    border: none;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    padding: 1em;
+    margin-bottom: 1.2em;
+    width: 100%;
+
+    opacity: 0.8;
+    font-family: Gotham;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #262626;
+}
+
+.login input:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px rgba(151, 151, 151, 0.25);
+}
+
+.btn {
+    cursor: pointer;
+    outline: none;
+    width: 145px;
+    height: 48px;
+    border: none;
+    border-radius: 100px;
+    box-shadow: 0 4px 16px 0 rgba(237, 65, 89, 0.4);
+    background-color: #ed4159;
+    font-family: Gotham;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+}
+
+.btn:hover {
+    background-color: #ffffff;
+    color: #ed4159;
+    box-shadow: 0 6px 20px 0 rgba(237, 65, 89, 0.4);
+}
+
+.btn:active {
+    background-color: #ffffff;
+    color: #ed4159;
+    box-shadow: 0 2px 10px 0 rgba(237, 65, 89, 0.5);
+}
+
+.error-msg {
+    display: none;
+    width: 100%;
+    border-radius: 4px;
+    background-color: rgba(237, 65, 89, 0.25);
+    padding: 15px 20px;
+    margin-bottom: 30px;
+
+    font-family: Gotham;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ed4159;
+}
+
+.error-input {
+    box-shadow: 0 0 0 1px #ed4159 !important;
+    color: #ed4159 !important;
+}
+
+.login-header {
+    opacity: 0.8;
+    font-family: Gotham;
+    font-size: 24px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.2px;
+    text-align: center;
+    color: #262626;
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* height: 100%; */
+    min-width: 33vw;
+    max-width: 600px;
+    min-height: 250px;
+    max-height: 60%;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    padding: 2em;
+    padding-bottom: 3em;
+    border-radius: 8px;
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 128px;
+    height: 128px;
+    border: solid 1px #979797;
+}
+
+.profile-name {
+    opacity: 0.8;
+    font-family: Gotham;
+    font-size: 28px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.2px;
+    text-align: center;
+    color: #262626;
+}
