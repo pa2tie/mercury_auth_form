@@ -13,19 +13,13 @@
         <a href="#"><img src="assets/img/w-mercury-development.svg" alt="mercury-logo"></a>
     </div>
     <div class="login">
-        <div class="login-form">
+        <div class="login-form-wrapper">
             <h2 class="login-header">Log In</h2>
             <form id="loginForm" class="login__form" method="post">
-                <input class="login__form-email" type="text" name="email" placeholder="E-Mail" oninput="removeInputError()" />
+                <input class="login__form-email" type="email" name="email" placeholder="E-Mail" />
                 <input class="login__form-password" type="password" name="password" placeholder="Password">
-                <p class="error-msg">E-Mail or password is incorrect</p>
                 <button class="btn login-btn" type="submit">Login</button>
             </form>
-        </div>
-        <div class="profile">
-            <img class="profile-img" src="" alt="profile-img">
-            <span class="profile-name"></span>
-            <button class="btn logout-btn" onclick="logout()">Logout</button>
         </div>
     </div>
 

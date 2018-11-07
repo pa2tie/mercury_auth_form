@@ -50,7 +50,7 @@ body {
     flex-grow: 2;
 }
 
-.login-form {
+.login-form-wrapper {
     min-width: 30vw;
     max-width: 600px;
     max-height: 70%;
@@ -120,7 +120,6 @@ body {
 }
 
 .error-msg {
-    display: none;
     width: 99%;
     border-radius: 4px;
     background-color: rgba(237, 65, 89, 0.25);
@@ -164,7 +163,7 @@ body {
 }
 
 .profile {
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
