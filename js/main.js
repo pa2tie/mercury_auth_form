@@ -15,21 +15,21 @@ loginForm.addEventListener("submit", async (event) => {
     var loginResponseData = await loginResponse.json();
 
     if (loginResponse.status == 200) {
-        await removeInputError(emailInputElement);
-        await clearFormInputs(loginForm);
-        await removeFormError(loginForm);
-        await hideElement(loginFormWrapper);
-        await setProfile(loginResponseData);
+        removeInputError(emailInputElement);
+        clearFormInputs(loginForm);
+        removeFormError(loginForm);
+        hideElement(loginFormWrapper);
+        setProfile(loginResponseData);
     } else {
         switch(loginResponse.status) {
             case 400:
-                await removeFormError(loginForm);
-                await setFormError(loginForm, loginResponseData);
-                await setInputError(emailInputElement);
+                removeFormError(loginForm);
+                setFormError(loginForm, loginResponseData);
+                setInputError(emailInputElement);
                 break;
             default:
-                await removeFormError(loginForm);
-                await setFormError(loginForm, loginResponseData);
+                removeFormError(loginForm);
+                setFormError(loginForm, loginResponseData);
                 break;
         }
     }
@@ -53,7 +53,7 @@ async function loginRequest(form) {
     return await fetch(url, params);
 }
 
-async function objectifyForm(formArray) { //serialize form data function
+function objectifyForm(formArray) { //serialize form data function
     var returnArray = {};
     Array.prototype.slice.call(formArray).forEach(el => {
         if (el['name']) returnArray[el['name']] = el['value']; 
@@ -61,34 +61,34 @@ async function objectifyForm(formArray) { //serialize form data function
     return returnArray;
 }
 
-async function disableFormInputs(form, state) {
+function disableFormInputs(form, state) {
     Array.prototype.slice.call(form.elements).forEach(el => {
         el.readOnly = state;
     });
 }
 
-async function createProfileElement(profileData) {
-    var profile = await document.createElement("div");
-    await profile.classList.add("profile");
+function createProfileElement(profileData) {
+    var profile = document.createElement("div");
+    profile.classList.add("profile");
 
-    var profileImg = await document.createElement("img");
-    profileImg.src = await profileData["photoUrl"];
-    await profileImg.classList.add("profile-img");
-    await profile.appendChild(profileImg);
+    var profileImg = document.createElement("img");
+    profileImg.src = profileData["photoUrl"];
+    profileImg.classList.add("profile-img");
+    profile.appendChild(profileImg);
 
-    var profileName = await document.createElement("span");
-    profileName.textContent = await profileData["name"];
-    await profileName.classList.add("profile-name");
-    await profile.appendChild(profileName);
+    var profileName = document.createElement("span");
+    profileName.textContent = profileData["name"];
+    profileName.classList.add("profile-name");
+    profile.appendChild(profileName);
 
-    var logoutBtn = await document.createElement("button");
-    await logoutBtn.classList.add("btn");
-    await logoutBtn.classList.add("logout-btn");
+    var logoutBtn = document.createElement("button");
+    logoutBtn.classList.add("btn");
+    logoutBtn.classList.add("logout-btn");
     logoutBtn.innerHTML = "Logout";
     logoutBtn.addEventListener("click", async (event) => {
         await logout(profile);
     });
-    await profile.appendChild(logoutBtn);
+    profile.appendChild(logoutBtn);
 
     return profile;
 }
@@ -98,15 +98,15 @@ async function setProfile(profileData) {
     await document.getElementsByClassName("login")[0].appendChild(el);
 }
 
-async function removeProfile(profileElement) {
+function removeProfile(profileElement) {
     if (profileElement) profileElement.remove();
 }
 
-async function showElement(form) {
+function showElement(form) {
     form.style.display = "block";
 }
 
-async function hideElement(form) {
+function hideElement(form) {
     form.style.display = "none";
 }
 
@@ -115,33 +115,33 @@ async function setFormError(form, error) {
     await form.insertBefore(errMsg, form.getElementsByClassName("btn")[0]);
 }
 
-async function removeFormError(form) {
+function removeFormError(form) {
     var errorMsgElement = form.getElementsByClassName("error-msg")[0];
     if (errorMsgElement) errorMsgElement.remove();
 }
 
-async function createErrorMsgElement(error) {
+function createErrorMsgElement(error) {
     var p = document.createElement("p");
     p.innerHTML = error["error"];
     p.classList.add("error-msg");
     return p;
 }
 
-async function setInputError(inputElement) {
+function setInputError(inputElement) {
     if (inputElement) inputElement.classList.add("error-input");
 }
 
-async function removeInputError(inputElement) {
+function removeInputError(inputElement) {
     if (inputElement) inputElement.classList.remove("error-input"); 
 }
 
-async function clearFormInputs(form) {
+function clearFormInputs(form) {
     Array.prototype.slice.call(form.elements).forEach(el => {
         el.value = "";
     });
 }
 
-async function logout(profileElement) {
+function logout(profileElement) {
     removeProfile(profileElement);
     loginFormWrapper.style.display = "block";
 }
