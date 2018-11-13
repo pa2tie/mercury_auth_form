@@ -2,14 +2,14 @@ var loginFormWrapper = document.getElementsByClassName("login-form-wrapper")[0];
 var loginForm = document.getElementById("loginForm");
 var emailInputElement = loginForm.getElementsByClassName("login__form-email")[0];
 
-emailInputElement.addEventListener("input", async (event) => {
-    await removeInputError(emailInputElement);
+emailInputElement.addEventListener("input", (event) => {
+    removeInputError(emailInputElement);
 });
 
 loginForm.addEventListener("submit", async (event) => {
-    await event.preventDefault();
+    event.preventDefault();
     
-    await disableFormInputs(loginForm, true);
+    disableFormInputs(loginForm, true);
 
     var loginResponse = await loginRequest(loginForm);
     var loginResponseData = await loginResponse.json();
@@ -34,13 +34,13 @@ loginForm.addEventListener("submit", async (event) => {
         }
     }
 
-    await disableFormInputs(loginForm, false);
+    disableFormInputs(loginForm, false);
 });
 
 async function loginRequest(form) {
     const url = 'https://us-central1-mercdev-academy.cloudfunctions.net/login';
-    var data = await objectifyForm(form);
-    data = await JSON.stringify(data);
+    var data = objectifyForm(form);
+    data = JSON.stringify(data);
 
     var params = {
         headers: {
@@ -85,17 +85,17 @@ function createProfileElement(profileData) {
     logoutBtn.classList.add("btn");
     logoutBtn.classList.add("logout-btn");
     logoutBtn.innerHTML = "Logout";
-    logoutBtn.addEventListener("click", async (event) => {
-        await logout(profile);
+    logoutBtn.addEventListener("click", (event) => {
+        logout(profile);
     });
     profile.appendChild(logoutBtn);
 
     return profile;
 }
 
-async function setProfile(profileData) {
-    var el = await createProfileElement(profileData);
-    await document.getElementsByClassName("login")[0].appendChild(el);
+function setProfile(profileData) {
+    var el = createProfileElement(profileData);
+    document.getElementsByClassName("login")[0].appendChild(el);
 }
 
 function removeProfile(profileElement) {
@@ -111,8 +111,8 @@ function hideElement(form) {
 }
 
 async function setFormError(form, error) {
-    var errMsg = await createErrorMsgElement(error);
-    await form.insertBefore(errMsg, form.getElementsByClassName("btn")[0]);
+    var errMsg = createErrorMsgElement(error);
+    form.insertBefore(errMsg, form.getElementsByClassName("btn")[0]);
 }
 
 function removeFormError(form) {
